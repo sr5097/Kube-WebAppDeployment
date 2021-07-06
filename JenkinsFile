@@ -21,7 +21,7 @@ pipeline {
                 // Build the app.
                 sh 'go build' */
 
-                sh "cd $(WORKSPACE}/app/"
+                sh "cd ${WORKSPACE}/app/"
                 sh "docker build ."             
             }     
         }
