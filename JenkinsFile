@@ -19,7 +19,7 @@ pipeline {
                 //sh "cd ./Kube-WebAppDeployment/app"
                 dir("Kube-WebAppDeployment/app"){
                     sh "pwd"
-                    sh "docker build . -t name -f Kube-WebAppDeployment/app/Dockerfile"
+                    sh "docker build . -t name"
                 }
             }
         }
