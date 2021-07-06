@@ -5,14 +5,16 @@ pipeline {
         dbRegistry = "salomirao/pythonapp-db"
         GOCACHE = "/tmp"
     }
-    stage('test pipeline') {
-        sh(script: """
-           echo "hello"
-           git clone https://github.com/sr5097/Kube-WebAppDeployment.git
-           cd ./app
+    stages{
+        stage('test pipeline') {
+            sh(script: """
+            echo "hello"
+            git clone https://github.com/sr5097/Kube-WebAppDeployment.git
+            cd ./app
 
-           docker build . -t test
-        """)
+            docker build . -t test
+            """)
+        }
     }
     /*stages {
         stage('Build') {
@@ -75,4 +77,3 @@ pipeline {
             }
         }*/
     }
-}
