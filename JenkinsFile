@@ -7,13 +7,18 @@ pipeline {
     }
     stages{
         stage('test pipeline') {
-            sh(script: """
+            /*sh(script: """
             echo "hello"
             git clone https://github.com/sr5097/Kube-WebAppDeployment.git
             cd ./app
 
             docker build . -t test
-            """)
+            """)*/
+            steps{
+                sh "git clone https://github.com/sr5097/Kube-WebAppDeployment.git"
+                sh "cd ./app"
+                sh "docker build . -t name"
+            }
         }
     }
     /*stages {
