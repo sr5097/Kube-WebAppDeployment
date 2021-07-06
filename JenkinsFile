@@ -17,7 +17,8 @@ pipeline {
             steps{
                 sh "git clone https://github.com/sr5097/Kube-WebAppDeployment.git"
                 sh "cd ./Kube-WebAppDeployment/app"
-                sh "docker build . -t name"
+                sh "pwd"
+                sh "docker build . -t name -f Kube-WebAppDeployment/app/Dockerfile"
             }
         }
     }
