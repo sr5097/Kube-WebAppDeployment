@@ -10,7 +10,7 @@ pipeline {
            echo "hello"
            git clone https://github.com/sr5097/Kube-WebAppDeployment.git
            cd ./app
-           
+
            docker build . -t test
         """)
     }
@@ -73,6 +73,6 @@ pipeline {
                     sh "ansible-playbook  playbook.yml --extra-vars \"image_id=${image_id}\""
                 }
             }
-        }*/
-    }
+        }
+    }*/
 }
