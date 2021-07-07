@@ -25,7 +25,7 @@ pipeline {
                 }
                 withDockerRegistry([ credentialsId: "dockerhub", url:""]){
                     sh 'docker push salomirao/pythonapp-web'
-                    sh 'docker push salomirao/pythonapp-db:'
+                    sh 'docker push salomirao/pythonapp-db'
                     sh "docker push salomirao/pythonapp-web:$BUILD_NUMBER"
                     sh "docker push salomirao/pythonapp-db:$BUILD_NUMBER"
                 }
