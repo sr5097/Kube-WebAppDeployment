@@ -31,6 +31,9 @@ pipeline {
                     sh "docker push salomirao/pythonapp-web:$BUILD_NUMBER"
                     sh "docker push salomirao/pythonapp-db:$BUILD_NUMBER"
                 }
+
+                sh 'kubectl set image deployment/web-deployment web=salomirao/pythonapp-web:latest -n app'
+                sh 'kubectl set image deployment/db-deployment db=salomirao/pythonapp-db:latest -n app'
             }
         }
     }
