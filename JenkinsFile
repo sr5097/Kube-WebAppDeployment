@@ -18,9 +18,11 @@ pipeline {
                 sh "git clone https://github.com/sr5097/Kube-WebAppDeployment.git"
                 //sh "cd ./Kube-WebAppDeployment/app"
                 dir("Kube-WebAppDeployment/app"){
+                    sh "docker build . -t salomirao/pythonapp-web:latest"
                     sh "docker build . -t salomirao/pythonapp-web:$BUILD_NUMBER"
                 }
                 dir("Kube-WebAppDeployment/db"){
+                    sh "docker build . -t salomirao/pythonapp-web:latest"
                     sh "docker build . -t salomirao/pythonapp-db:$BUILD_NUMBER"
                 }
                 withDockerRegistry([ credentialsId: "dockerhub", url:""]){
