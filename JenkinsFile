@@ -34,13 +34,13 @@ pipeline {
             }
         }
         
-        stage("Deploy") {
-            agent { label 'master' }
-            steps{
-                sh 'kubectl set image deployment/web-deployment web=salomirao/pythonapp-web:latest -n app'
-                sh 'kubectl set image deployment/db-deployment db=salomirao/pythonapp-db:latest -n app'
-            }
-        }
+        // stage("Deploy") {
+        //     agent { label 'master' }
+        //     steps{
+        //         sh 'kubectl set image deployment/web-deployment web=salomirao/pythonapp-web:latest -n app'
+        //         sh 'kubectl set image deployment/db-deployment db=salomirao/pythonapp-db:latest -n app'
+        //     }
+        // }
     }
     /*stages {
         stage('Build') {
