@@ -43,6 +43,7 @@ pipeline {
         //     }
         // }
         stage("KubeCLI-test") {
+            agent { label 'master' }
             steps{
                 withKubeConfig([credentialsId: 'kubSecret']) {
                     // sh 'which kubectl'
