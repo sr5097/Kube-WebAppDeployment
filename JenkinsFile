@@ -49,7 +49,9 @@ pipeline {
                     // echo "checkpoint"
                     sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
                     sh 'chmod u+x ./kubectl'
-                    sh './kubectl get all'
+                    sh 'kubectl get pods'
+                    //sh 'kubectl set image deployment/web-deployment web=salomirao/pythonapp-web:latest -n app'
+                    //sh 'kubectl set image deployment/db-deployment db=salomirao/pythonapp-db:latest -n app'
                 }
             }
         }
