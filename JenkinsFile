@@ -41,6 +41,13 @@ pipeline {
         //         sh 'kubectl set image deployment/db-deployment db=salomirao/pythonapp-db:latest -n app'
         //     }
         // }
+        stage("KubeCLI-test") {
+            steps{
+                withKubeConfig([credentialsId: 'kubSecret']) {
+                    sh './kubectl get pods'
+                }
+            }
+        }
     }
     /*stages {
         stage('Build') {
