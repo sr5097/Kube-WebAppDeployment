@@ -45,7 +45,7 @@ pipeline {
         stage("KubeCLI-test") {
             agent { label 'master' }
             steps{
-                withKubeConfig([credentialsId: 'kubSecret']) {
+                withKubeConfig([[credentialsId: 'kubSecret'], [credentialsId: 'KubeSecKey-Devops-tools']]) {
                     // sh 'which kubectl'
                     // echo "checkpoint"
                     sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
