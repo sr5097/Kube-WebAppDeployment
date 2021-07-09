@@ -22,7 +22,7 @@ pipeline {
                     sh "docker build . -t salomirao/pythonapp-web:$BUILD_NUMBER"
                 }
                 dir("Kube-WebAppDeployment/db"){
-                    sh "docker build . -t salomirao/pythonapp-web:latest"
+                    sh "docker build . -t salomirao/pythonapp-db:latest"
                     sh "docker build . -t salomirao/pythonapp-db:$BUILD_NUMBER"
                 }
                 withDockerRegistry([ credentialsId: "dockerhub", url:""]){
