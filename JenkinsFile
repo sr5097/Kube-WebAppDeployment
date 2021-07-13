@@ -52,7 +52,7 @@ pipeline {
                     sh 'chmod u+x ./kubectl'
                     sh './kubectl get pods'
                     sh './kubectl set image deployment/web-deployment web=salomirao/pythonapp-web:latest -n cicd'
-                    sh './kubectl set image deployment/db-deployment db=salomirao/pythonapp-db:latest -n cicd'
+                    sh './kubectl set image deployment/db db=salomirao/pythonapp-db:latest -n cicd'
                 }
             }
         }
